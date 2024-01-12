@@ -1,11 +1,11 @@
-name: Deploy Content to WS-Sentinel [476de418-720d-415e-b2e6-959c062a67dd]
+name: Deploy Content to WS-Sentinel [760b2294-5878-4e4e-aedc-8c7985dffc95]
 # Note: This workflow will deploy everything in the root directory.
 # To deploy content only from a specific path (for example SentinelContent):
 #   1. Add the target path to the "paths" property like such
 #    paths:
 #    - 'SentinelContent/**'
 #    - '!.github/workflows/**'
-#    - '.github/workflows/sentinel-deploy-476de418-720d-415e-b2e6-959c062a67dd.yml'
+#    - '.github/workflows/sentinel-deploy-760b2294-5878-4e4e-aedc-8c7985dffc95.yml'
 #   2. Append the path to the directory environment variable below
 #       directory: '${{ github.workspace }}/SentinelContent'
 
@@ -15,7 +15,7 @@ on:
     paths:
     - '**'
     - '!.github/workflows/**'  # this filter prevents other workflow changes from triggering this workflow
-    - '.github/workflows/sentinel-deploy-476de418-720d-415e-b2e6-959c062a67dd.yml'
+    - '.github/workflows/sentinel-deploy-760b2294-5878-4e4e-aedc-8c7985dffc95.yml'
 
 jobs:
   deploy-content:
@@ -26,10 +26,10 @@ jobs:
       workspaceId: 'bbcde84d-99b6-4f0c-be97-7256eb168a91'
       directory: '${{ github.workspace }}'
       cloudEnv: 'AzureCloud'
-      creds: ${{ secrets.AZURE_SENTINEL_CREDENTIALS_476de418720d415eb2e6959c062a67dd }}
+      creds: ${{ secrets.AZURE_SENTINEL_CREDENTIALS_760b229458784e4eaedc8c7985dffc95 }}
       contentTypes: 'AnalyticsRule,AutomationRule,HuntingQuery,Parser,Playbook,Workbook'
       branch: 'main'
-      sourceControlId: '476de418-720d-415e-b2e6-959c062a67dd'
+      sourceControlId: '760b2294-5878-4e4e-aedc-8c7985dffc95'
       rootDirectory: '${{ github.workspace }}'
       githubAuthToken: ${{ secrets.GITHUB_TOKEN }}
       smartDeployment: 'true'
@@ -41,7 +41,7 @@ jobs:
       uses: azure/login@v1
       if: ${{ env.cloudEnv == 'AzureCloud' }}
       with:
-        creds: ${{ secrets.AZURE_SENTINEL_CREDENTIALS_476de418720d415eb2e6959c062a67dd }}
+        creds: ${{ secrets.AZURE_SENTINEL_CREDENTIALS_760b229458784e4eaedc8c7985dffc95 }}
         enable-AzPSSession: true
 
     - name: Wait 30 seconds if login attempt 1 failed
@@ -54,7 +54,7 @@ jobs:
       uses: azure/login@v1
       if: ${{ env.cloudEnv == 'AzureCloud' && steps.login1.outcome=='failure' }}
       with:
-        creds: ${{ secrets.AZURE_SENTINEL_CREDENTIALS_476de418720d415eb2e6959c062a67dd }}
+        creds: ${{ secrets.AZURE_SENTINEL_CREDENTIALS_760b229458784e4eaedc8c7985dffc95 }}
         enable-AzPSSession: true
 
     - name: Wait 30 seconds if login attempt 2 failed
@@ -67,7 +67,7 @@ jobs:
       uses: azure/login@v1
       if: ${{ env.cloudEnv == 'AzureCloud' && steps.login2.outcome=='failure'  }}
       with:
-        creds: ${{ secrets.AZURE_SENTINEL_CREDENTIALS_476de418720d415eb2e6959c062a67dd }}
+        creds: ${{ secrets.AZURE_SENTINEL_CREDENTIALS_760b229458784e4eaedc8c7985dffc95 }}
         enable-AzPSSession: true
 
     - name: Checkout
@@ -78,4 +78,4 @@ jobs:
       with:
         azPSVersion: 'latest'
         inlineScript: |
-          ${{ github.workspace }}//.github/workflows/azure-sentinel-deploy-476de418-720d-415e-b2e6-959c062a67dd.ps1
+          ${{ github.workspace }}//.github/workflows/azure-sentinel-deploy-760b2294-5878-4e4e-aedc-8c7985dffc95.ps1
