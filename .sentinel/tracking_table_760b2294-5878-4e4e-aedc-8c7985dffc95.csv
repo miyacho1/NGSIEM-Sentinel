@@ -1,0 +1,7 @@
+FileName, CommitSha
+Playbook/Block-AADUser-Incident.json,66a869d3f82ab449bf6592d02a9acaa6ca5fd9fe
+Parsers/Repository Parser.json,8de254d7dafb35eacee46883397eed8eac42698b
+Hunting Queries/BlackCatRansowmare.json,ed5508684ed18ea3a0c5f3e8eb1b2ce3a4468e74
+Parsers/Parser Template.json,2cda591efa3069db09169f0f05843a185fe37020
+Playbook/MicrosoftSentinel-ChatGPT-Playbook.json,6257bef14c115967b0c40fad669ef269f44bf17b
+
